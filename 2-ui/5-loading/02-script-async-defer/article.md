@@ -135,7 +135,7 @@
 ```js run
 let script = document.createElement('script');
 script.src = "/article/script-async-defer/long.js";
-document.body.append(script); // (*)
+document.body.appendChild(script); // (*)
 ```
 
 Скрипт начнёт загружаться, как только он будет добавлен в документ  `(*)`.
@@ -156,7 +156,7 @@ script.src = "/article/script-async-defer/long.js";
 script.async = false;
 */!*
 
-document.body.append(script);
+document.body.appendChild(script);
 ```
 
 Например, здесь мы добавляем два скрипта. Без `script.async=false` они запускались бы в порядке загрузки (`small.js` скорее всего запустился бы раньше). Но с этим флагом порядок будет как в документе:
@@ -167,7 +167,7 @@ function loadScript(src) {
   let script = document.createElement('script');
   script.src = src;
   script.async = false;
-  document.body.append(script);
+  document.body.appendChild(script);
 }
 
 // long.js запускается первым, так как async=false
